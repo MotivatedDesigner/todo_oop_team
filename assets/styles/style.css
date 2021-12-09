@@ -1,0 +1,70 @@
+
+html{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+}
+.home{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+ul{
+  list-style: none;
+}
+
+.projects{
+  width: 30%;
+}
+
+.app-name{
+  display: inline-block;
+  margin: 30px;
+}
+
+.projects-list{
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+.projects-item{
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: blue;
+}
+
+.project{
+  width: 70%;
+  margin: 30px;
+}
+
+.project-description{
+  margin: 8px;
+  width: 60%;
+}
+
+.project-todo{
+  margin: 16px 40px;
+  width: 80%;
+}
+
+.todo{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  background-color:#dadada;
+  padding: 16px;
+}
+
+.todo-actions svg{
+  height: 20px;
+}
+
+.todo-actions{
+  display: flex;
+  gap: 8px;
+}
