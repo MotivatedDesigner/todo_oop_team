@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="modal.css"> -->
+    <title>todos</title>
+</head>
+
+<body>
+    <button id="btn" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">ADD NEW
+        LIST</button>
+    <!-- modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>ADD TASK</h3>
+                </div>
+                <div class="modal-body">
+                    <input type="text" placeholder="Name" class="Name" id="name">
+                    <input type="date" placeholder="date" class="Date" id="date">
+                    <input type="text" placeholder="Description" class="Description" id="description">
+                </div>
+                <div>
+                    <button type="button" id="btn2">ADD</button>
+                </div>
+                <div class="elementCreated">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+    <script src="item.js"></script>
+</body>
+
+</html>
