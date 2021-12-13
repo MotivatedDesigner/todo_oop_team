@@ -13,7 +13,7 @@ export default class Project extends Item {
     }
     updatedTodo(todoId, todo) {
         let oldTodo = this.todos.find(todo => todo.id == todoId)
-            .update(todo)
+            .update(oldTodo)
     }
 
 }
