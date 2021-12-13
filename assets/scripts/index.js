@@ -6,6 +6,8 @@ import Todo from "./Todo.js"
 
 const controller = new Controller(new UserInterface, new StorageManager);
 
+controller.showProjects()
+
 document.getElementById('add-project').addEventListener('click', () => {
   document.getElementById('add-project-modal').classList.add('show')
 })
@@ -19,8 +21,10 @@ document.getElementById('project-save').addEventListener('click', () => {
   controller.addProject(new Project(title, description, dueDate))
 
 })
-document.getElementById('clear-projects').addEventListener('click', () => { 
 
-  controller.clearProjects()
+document.getElementById('clear-projects').addEventListener('click', controller.clearProjects)
+console.log('before',controller.projects)
 
-})
+window.onbeforeunload = () => {console.log('doo');controller.saveProjects()}
+
+console.log('after',controller.projects)
