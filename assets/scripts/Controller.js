@@ -6,7 +6,12 @@ export default class Controller {
     this.currentProject = null
   }
 
-  showProjects = () =>  this.userInterface.displayProjects(this.projects)
+  showProjects = () =>  {
+    console.log(`Controller.showProject`, this.projects)
+    this.userInterface.displayProjects(this.projects)
+    console.log(`Controller.showProject after`, this.projects)
+  
+  }
 
   showProject = (projectId) =>  {
     let project = this.projects.find( project => project.id ==  projectId)
@@ -30,7 +35,6 @@ export default class Controller {
     this.userInterface.addProject(project)
   }
 
-  
   clearProjects = () =>  {
     this.projects = []
     this.currentProject = null
@@ -67,5 +71,8 @@ export default class Controller {
     this.currentProject.completed = completed
     this.userInterface.updateProject(projectId, this.currentProject)
   }
-  
+
+  saveProjects = () => {
+    this.storageManager.setProjects(this.projects)
+  }
 }
