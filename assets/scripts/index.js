@@ -23,8 +23,5 @@ document.getElementById('project-save').addEventListener('click', () => {
 })
 
 document.getElementById('clear-projects').addEventListener('click', controller.clearProjects)
-console.log('before',controller.projects)
 
-window.onbeforeunload = () => {console.log('doo');controller.saveProjects()}
-
-console.log('after',controller.projects)
+window.onbeforeunload = () => controller.saveProjects

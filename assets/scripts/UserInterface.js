@@ -23,7 +23,6 @@ export default class UserInterface {
     addProject = (project) => {
       let html = `<li id="project-${project.id}">${project.title}</li>`
       this.projectList.innerHTML += html
-      console.log(`this.projectList.innerHTML`, this.projectList.innerHTML)
     }
     updateProject = (projectId, project) => {
       let html = `<li id="project-${project.id}">${project.title}</li>`

@@ -6,12 +6,7 @@ export default class Controller {
     this.currentProject = null
   }
 
-  showProjects = () =>  {
-    console.log(`Controller.showProject`, this.projects)
-    this.userInterface.displayProjects(this.projects)
-    console.log(`Controller.showProject after`, this.projects)
-  
-  }
+  showProjects = () => this.userInterface.displayProjects(this.projects)
 
   showProject = (projectId) =>  {
     let project = this.projects.find( project => project.id ==  projectId)

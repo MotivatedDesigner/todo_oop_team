@@ -1,7 +1,4 @@
 export default class StorageManager {
-    constructor() {
-        this.key = "projects"
-    }
     setProjects = (projects) => {
         localStorage.setItem("projects", JSON.stringify(projects))}
 
