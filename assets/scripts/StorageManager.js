@@ -2,15 +2,12 @@ export default class StorageManager {
     constructor() {
         this.key = "projects"
     }
-    setProjects(projects) {
-        localStorage.setItem(this.key, JSON.stringify(projects));
-    }
+    setProjects = (projects) => {
+        localStorage.setItem("projects", JSON.stringify(projects))}
+
     getProjects = () => {
-        let projects = localStorage.getItem(this.key)
-        if(projects == null) {
-            this.setProjects([])
-            return []
-        }
+        let projects = localStorage.getItem("projects")
+        if(projects == null)  return []
         else return JSON.parse(projects)
     }
 }
