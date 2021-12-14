@@ -15,7 +15,7 @@ document.getElementById('project-save').addEventListener('click', () => {
   const title = document.getElementById('input-project-title').value
   const description = document.getElementById('input-project-description').value
   const dueDate = document.getElementById('input-project-dueDate').value
-  controller.addProject(new Project(title, description, dueDate))
+  controller.addItem('project', new Project(title, description, dueDate))
   addProjectModal.classList.remove('show')
 })
 
@@ -27,9 +27,8 @@ document.getElementById('project-list').addEventListener('click', (event) => {
 })
 
 document.getElementById('todo-input-add').addEventListener('click', () => {
-  console.log('fdf')
-  const title = document.getElementById('todo-input-title')
-  controller.currentProject.addTodo( new Todo(title) )
+  const title = document.getElementById('todo-input-title').value
+  controller.addItem('todo', new Todo(title))
 })
 
 window.onbeforeunload = controller.saveProjects

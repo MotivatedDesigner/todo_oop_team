@@ -14,7 +14,7 @@ export default class Controller {
   showProject = (projectId) =>  {
     let project = this.projects.find( project => project.id ==  projectId)
     this.userInterface.showProject(this.currentProject = project)
-    Object.setPrototypeOf(this.currentProject, Project.prototype)
+    // Object.setPrototypeOf(this.currentProject, Project.prototype)
   }
 
   updateProject = (project) =>  {
@@ -28,9 +28,13 @@ export default class Controller {
     this.userInterface.clearProject()
   }
 
-  addProject = (project) =>  {
-    this.projects.push(project)
-    this.userInterface.addItem('project', project)
+  addItem = (type, item) =>  {
+    if(type === 'project')
+      this.projects.push(item)
+    else
+      this.currentProject.todos.push(item)
+    console.log(`item`, item)
+    this.userInterface.addItem(type, item)
   }
 
   clearProjects = () =>  {

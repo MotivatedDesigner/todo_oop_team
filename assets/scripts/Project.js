@@ -5,9 +5,6 @@ export default class Project extends Item {
         super(title, description, dueDate)
         this.todos = []
     }
-    addTodo(todo) {
-        this.todos.push(todo);
-    }
     removeTodo(todoId) {
         this.todos = this.todos.filter(todo => todo.id != todoId)
     }
