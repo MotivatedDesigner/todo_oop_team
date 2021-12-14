@@ -51,6 +51,9 @@ ul {
   justify-content: space-between;
   cursor: pointer;
 }
+#project-list li.checked{
+  text-decoration: line-through;
+}
 #project-list li:hover {
   background-color: rgba(9, 9, 121, 0.685);
 }
@@ -78,8 +81,6 @@ ul {
   display: inline-block;
   margin: 30px;
 }
-
-
 
 .add-todo{
   display: flex;
@@ -122,6 +123,10 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
+}
+#project-todos li.checked{
+  background-color: rgb(125 207 139);
+  text-decoration: line-through;
 }
 #project-todos li svg{
   height: 26px;
