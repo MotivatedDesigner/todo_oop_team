@@ -8,7 +8,7 @@ export default class UserInterface {
       this.projectDescription = document.getElementById('project-description')
     }
     /* ----------------  Utilities ------------------ */
-    generateTodoHtml = (todo) => `
+    generateTodoHtml = todo => `
       <li id="${todo.id}" ${todo.completed ? 'class="checked"' : ''} >
         ${todo.title}
         <div class="todo-actions">
@@ -18,7 +18,7 @@ export default class UserInterface {
         <div>
       </li> 
     `
-    generateProjectHtml = (project) => `
+    generateProjectHtml = project => `
       <li id="${project.id}" ${project.completed ? 'class="checked"' : ''}>${project.title}</li>
     `
     capitalizeFirstLetter = (word) => word.charAt(0).toUpperCase() + word.slice(1) 
@@ -30,7 +30,7 @@ export default class UserInterface {
 
     clearProject = () => this.projectDiv.classList.remove('show')
 
-    showProject = (project) => {
+    showProject = project => {
       this.projectTitle.innerHTML = project.title
       this.projectDescription.innerHTML = project.description
       this.displayTodos(project.todos)
@@ -43,26 +43,8 @@ export default class UserInterface {
     updateItem = (type, itemId, item) => 
       document.getElementById(itemId).innerHTML = this[`generate${this.capitalizeFirstLetter(type)}Html`](item) 
 
-    removeProject = (projectId) => {
-      document.getElementById(`${projectId}`).innerHTML = ''
-    }
+    removeItem = itemId => document.getElementById(itemId).innerHTML = ''
 
-    displayTodos = (todos) => {
-      let html = todos.map(todo => `<li id="${todo.id}">${todo.title}</li>`).join(' ')
-      this.todoList.innerHTML = html
-    }    
-    addTodo = (todo) => {
-      let html = `<li id="${todo.id}">${todo.title}</li>`
-      this.todoList.innerHTML += html
-    }
-    updateTodo = (todoId, todo) => {
-      let html = `<li class="${ todo.completed ? 'green' : 'gray'}" id="${todo.id}">${todo.title}</li>`
-      document.getElementById(`${todoId}`).innerHTML = html
-    }
-    removeTodo = (todoId) => {
-      document.getElementById(`${todoId}`).innerHTML = ''
-    }
-
-    clearAll = (type) => this[`${type}List`].innerHTML = ''
+    clearAll = type => this[`${type}List`].innerHTML = ''
 
 }
