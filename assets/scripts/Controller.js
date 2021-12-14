@@ -30,13 +30,18 @@ export default class Controller {
 
   addProject = (project) =>  {
     this.projects.push(project)
-    this.userInterface.addProject(project)
+    this.userInterface.addItem('project', project)
   }
 
   clearProjects = () =>  {
     this.projects = []
     this.currentProject = null
     this.userInterface.clearAll('project')
+  }
+
+  clearTodos = () =>  {
+    this.currentProject.todos = []
+    this.userInterface.clearAll('todos')
   }
 
   updateTodo = (todoId, todo) =>  {
@@ -70,5 +75,5 @@ export default class Controller {
   }
 
   saveProjects = () => this.storageManager.setProjects(this.projects)
-  
+
 }

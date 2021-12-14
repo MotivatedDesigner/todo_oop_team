@@ -99,7 +99,7 @@ ul {
   border-end-start-radius: 8px;
   border-start-start-radius: 8px;
 }
-#todo-input-add {
+#todo-input-add, #clear-todos {
   font-size: 3.2rem;
   outline: none;
   border: none;
@@ -111,8 +111,15 @@ ul {
     rgba(16, 16, 189, 0.863) 100%
   );
   color: white;
-  border-start-end-radius: 8px;
-  border-end-end-radius: 8px;
+  cursor: pointer;
+}
+#clear-todos {
+  background: rgba(121, 44, 9, 0.39);
+  background: linear-gradient(
+    360deg,
+    rgba(121, 26, 9, 0.849) 0%,
+    rgba(189, 16, 16, 0.863) 100%
+  );
 }
 
 #todo-list{

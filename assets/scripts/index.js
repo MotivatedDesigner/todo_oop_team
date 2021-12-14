@@ -20,9 +20,16 @@ document.getElementById('project-save').addEventListener('click', () => {
 })
 
 document.getElementById('clear-projects').addEventListener('click', controller.clearProjects)
+document.getElementById('clear-todos').addEventListener('click', controller.clearTodos)
 
 document.getElementById('project-list').addEventListener('click', (event) => {
   if(event.target.tagName == 'LI') controller.showProject(event.target.id)
+})
+
+document.getElementById('todo-input-add').addEventListener('click', () => {
+  console.log('fdf')
+  const title = document.getElementById('todo-input-title')
+  controller.currentProject.addTodo( new Todo(title) )
 })
 
 window.onbeforeunload = controller.saveProjects

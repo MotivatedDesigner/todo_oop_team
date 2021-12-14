@@ -28,12 +28,12 @@ export default class UserInterface {
         this[`generate${this.capitalizeFirstLetter(type)}Html`](el) 
       ).join(' ')
 
-    hideProjectDiv = () => this.projectDiv.classList.remove('show')
+    showProjectDiv = show => this.projectDiv.classList[show ? 'add' : 'remove']('show')
 
     showProject = project => {
       this.projectTitle.innerHTML = project.title
       this.projectDescription.innerHTML = project.description
-      if( !this.projectDiv.classList.contains('show') ) this.projectDiv.classList.add('show')
+      if( !this.projectDiv.classList.contains('show') ) this.showProjectDiv(true)
       this.displayAll('todo', project.todos)
     }
 
@@ -45,9 +45,12 @@ export default class UserInterface {
 
     removeItem = (type, itemId) => {
       document.getElementById(itemId).innerHTML = ''
-      if(type === 'project') this.hideProjectDiv()
+      if(type === 'project') this.showProjectDiv(false)
     }
 
-    clearAll = type => this[`${type}List`].innerHTML = ''
+    clearAll = type => {
+      this[`${type}List`].innerHTML = ''
+      if(type === 'project') this.showProjectDiv(false)
+    } 
 
 }
