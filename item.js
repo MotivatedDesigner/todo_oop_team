@@ -1,3 +1,10 @@
+class Input {
+    constructor(title) {
+        this.title = title;
+    }
+}
+
+
 class Selection {
     constructor() {
         this._select = window.document
@@ -27,13 +34,13 @@ let ul = element.querySelector('#todos')
 let li = document.createElement('li')
 
 
-btn2.addEventListener('click', (e) => {
-    e.preventDefault();
-    let note = input.value;
-    createElement(note);
-    console.log('clicked')
+// btn2.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     let note = input.value;
+//     createElement(note);
+//     console.log('clicked')
 
-})
+// })
 
 function inputLength(input) {
     return input.value.length;

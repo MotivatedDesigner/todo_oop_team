@@ -1,77 +1,119 @@
 html {
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: .6rem 1.2rem;
+    background-color: gray !important;
+    margin-bottom: 32px !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+li {
+    margin-bottom: 32px !important;
+    margin-left: 16px;
 }
 
 .home {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 .projects {
-  width: 30%;
+    width: 30%;
+    position: relative;
 }
 
 .app-name {
-  display: inline-block;
-  margin: 30px;
+    display: inline-block;
+    margin: 30px;
 }
 
 .projects-list {
-  margin-left: 16px;
-  margin-top: 16px;
+    margin-left: 32px;
+    margin-top: 16px;
 }
 
 .projects-item {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
-  color: blue;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: blue;
 }
 
 .project {
-  width: 70%;
-  margin: 30px;
+    width: 70%;
+    margin: 30px;
 }
 
 .project-description {
-  margin: 8px;
-  width: 60%;
+    margin: 32px 8px;
+    width: 60%;
 }
 
 .project-todo {
-  margin: 16px 40px;
-  width: 80%;
-}
-
-.elementCreated {
-  margin: 8px;
-  width: 60%;
+    margin: 16px 40px;
+    width: 80%;
 }
 
 .todo {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 24px;
-  background-color: #dadada;
-  padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    background-color: #dadada;
+    padding: 16px;
 }
 
 .todo-actions svg {
-  height: 20px;
+    height: 20px;
 }
 
 .todo-actions {
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+#add-project {
+    margin-left: 30px;
+    position: absolute;
+    bottom: 40px;
+    padding: .6rem 1.2rem;
+}
+
+#add_projects {
+    margin-left: 30px;
+    position: absolute;
+    bottom: 40px;
+    padding: .6rem 1.2rem;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    bottom: 86px;
+    left: 32px;
+    height: 160px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.show {
+    display: flex;
 }
