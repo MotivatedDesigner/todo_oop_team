@@ -26,10 +26,8 @@ document.getElementById('clear-projects').addEventListener('click', controller.c
 
 document.getElementById('btn2').addEventListener('click', () => {
   let inputTitle = document.getElementById('title').value
-  createElement(inputTitle);
-  // controller.currentProject.addTodo(new Todo(inputTitle))
-  // createElement(note);
-  console.log('clickeddd')
+  controller.currentProject.addTodo(new Todo(inputTitle))
+  controller.userInterface.displayTodos(controller.currentProject.todos)
 })
 
 document.getElementById('project-list').addEventListener('click', (event) => {

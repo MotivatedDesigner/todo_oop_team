@@ -1,3 +1,4 @@
+import Project from "./Project.js"
 export default class Controller {
   constructor(userInterface, storageManager) {
     this.userInterface = userInterface
@@ -12,8 +13,7 @@ export default class Controller {
     let project = this.projects.find(project => project.id == projectId)
     this.userInterface.showProject(project)
     this.currentProject = project
-    console.log(this)
-
+    this.currentProject.__proto__ = Project.prototype
   }
 
   updateProject = (project) => {
