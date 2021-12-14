@@ -3,7 +3,7 @@ export default class UserInterface {
       this.todoList = document.getElementById('todo-list')
       this.projectList = document.getElementById('project-list')
 
-      this.projectDiv = document.querySelector('project')
+      this.projectDiv = document.querySelector('.project')
       this.projectTitle = document.getElementById('project-title')
       this.projectDescription = document.getElementById('project-description')
     }
@@ -28,13 +28,13 @@ export default class UserInterface {
         this[`generate${this.capitalizeFirstLetter(type)}Html`](el) 
       ).join(' ')
 
-    clearProject = () => this.projectDiv.classList.remove('show')
+    hideProjectDiv = () => this.projectDiv.classList.remove('show')
 
     showProject = project => {
       this.projectTitle.innerHTML = project.title
       this.projectDescription.innerHTML = project.description
-      this.displayTodos(project.todos)
       if( !this.projectDiv.classList.contains('show') ) this.projectDiv.classList.add('show')
+      this.displayAll('todo', project.todos)
     }
 
     addItem = (type, item) => 
@@ -43,7 +43,10 @@ export default class UserInterface {
     updateItem = (type, itemId, item) => 
       document.getElementById(itemId).innerHTML = this[`generate${this.capitalizeFirstLetter(type)}Html`](item) 
 
-    removeItem = itemId => document.getElementById(itemId).innerHTML = ''
+    removeItem = (type, itemId) => {
+      document.getElementById(itemId).innerHTML = ''
+      if(type === 'project') this.hideProjectDiv()
+    }
 
     clearAll = type => this[`${type}List`].innerHTML = ''
 
