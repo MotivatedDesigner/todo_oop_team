@@ -7,7 +7,7 @@ export default class UserInterface {
       this.projectTitle = document.getElementById('project-title')
       this.projectDescription = document.getElementById('project-description')
     }
-
+    /* ----------------  Utilities ------------------ */
     generateTodoHtml = (todo) => `
       <li id="${todo.id}" ${todo.completed ? 'class="checked"' : ''} >
         ${todo.title}
@@ -21,10 +21,11 @@ export default class UserInterface {
     generateProjectHtml = (project) => `
       <li id="${project.id}" ${project.completed ? 'class="checked"' : ''}>${project.title}</li>
     `
-
+    capitalizeFirstLetter = (word) => word.charAt(0).toUpperCase() + word.slice(1) 
+    /* ----------------------------------------------- */
     displayAll = (type, data) => 
       this[`${type}List`].innerHTML = data.map( el => 
-        this[`generate${type.charAt(0).toUpperCase() + type.slice(1)}Html`](el) 
+        this[`generate${this.capitalizeFirstLetter(type)}Html`](el) 
       ).join(' ')
 
     clearProject = () => this.projectDiv.classList.remove('show')
@@ -36,7 +37,8 @@ export default class UserInterface {
       if( !this.projectDiv.classList.contains('show') ) this.projectDiv.classList.add('show')
     }
 
-    addProject = (project) => this.projectList.innerHTML += this.generateProjectHtml(project)
+    addItem = (type, item) => 
+    this[`${type}List`].innerHTML += this[`generate${this.capitalizeFirstLetter(type)}Html`](item) 
 
     updateProject = (projectId, project) => {
       let html = `<li id="${project.id}">${project.title}</li>`
