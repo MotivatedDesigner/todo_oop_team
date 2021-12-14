@@ -1,104 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&family=Poppins:wght@100;300&display=swap");
 html {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .home {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-color: rgb(51, 51, 51);
+  color: white;
+  font-size: 1.2rem;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
+}
+
+#project-list {
+  flex: 1;
+  width: 100%;
+}
+#project-list li {
+  margin: 0 auto;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  background-color: transparent;
+  border: 2px solid rgba(9, 9, 121, 1);
+  width: 80%;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+#project-list li:hover {
+  background-color: rgba(9, 9, 121, 1);
 }
 
 .projects {
-    width: 30%;
-    position: relative;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px 64px;
+  background-color: rgb(185, 56, 120);
 }
 
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 0.8rem 1.6rem;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(
+    360deg,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(16, 16, 189, 1) 100%
+  );
+  border-radius: 8px;
+  outline: none;
+  color: white;
+  font-size: 1.4rem;
+}
 .app-name {
-    display: inline-block;
-    margin: 30px;
+  display: inline-block;
+  margin: 30px;
 }
 
-.projects-list {
-    margin-left: 32px;
-    margin-top: 16px;
-}
 
 .projects-item {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    color: blue;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: blue;
 }
 
 .project {
-    width: 70%;
-    margin: 30px;
+  width: 70%;
+  margin: 30px;
 }
 
 .project-description {
-    margin: 8px;
-    width: 60%;
+  margin: 8px;
+  width: 60%;
 }
 
 .project-todo {
-    margin: 16px 40px;
-    width: 80%;
+  margin: 16px 40px;
+  width: 80%;
 }
 
 .todo {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 24px;
-    background-color: #dadada;
-    padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  background-color: #dadada;
+  padding: 16px;
 }
 
 .todo-actions svg {
-    height: 20px;
+  height: 20px;
 }
 
 .todo-actions {
-    display: flex;
-    gap: 8px;
-}
-
-#add-project {
-    margin-left: 30px;
-    position: absolute;
-    bottom: 40px;
-    padding: .6rem 1.2rem;
+  display: flex;
+  gap: 8px;
 }
 
 #add_projects {
-    margin-left: 30px;
-    position: absolute;
-    bottom: 40px;
-    padding: .6rem 1.2rem;
+  margin-left: 30px;
+  position: absolute;
+  bottom: 40px;
+  padding: 0.6rem 1.2rem;
 }
 
 .modal {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    bottom: 86px;
-    left: 32px;
-    height: 160px;
-    width: 200px;
-    background-color: rgba(0, 0, 0, .4);
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  bottom: 86px;
+  left: 32px;
+  height: 160px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .show {
-    display: flex;
+  display: flex;
 }
