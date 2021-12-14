@@ -40,10 +40,9 @@ export default class UserInterface {
     addItem = (type, item) => 
     this[`${type}List`].innerHTML += this[`generate${this.capitalizeFirstLetter(type)}Html`](item) 
 
-    updateProject = (projectId, project) => {
-      let html = `<li id="${project.id}">${project.title}</li>`
-      document.getElementById(`${projectId}`).innerHTML = html
-    }
+    updateItem = (type, itemId, item) => 
+      document.getElementById(itemId).innerHTML = this[`generate${this.capitalizeFirstLetter(type)}Html`](item) 
+
     removeProject = (projectId) => {
       document.getElementById(`${projectId}`).innerHTML = ''
     }
