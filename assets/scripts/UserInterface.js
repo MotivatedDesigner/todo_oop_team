@@ -22,7 +22,10 @@ export default class UserInterface {
       <li id="${project.id}" ${project.completed ? 'class="checked"' : ''}>${project.title}</li>
     `
 
-  
+    displayAll = (type, data) => 
+      this[`${type}List`].innerHTML = data.map( el => 
+        this[`generate${type.charAt(0).toUpperCase() + type.slice(1)}Html`](el) 
+      ).join(' ')
 
     clearProject = () => this.projectDiv.classList.remove('show')
 

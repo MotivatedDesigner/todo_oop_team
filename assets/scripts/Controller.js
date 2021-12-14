@@ -6,7 +6,7 @@ export default class Controller {
     this.currentProject = null
   }
 
-  showProjects = () => this.userInterface.displayProjects(this.projects)
+  showProjects = () => this.userInterface.displayAll('project', this.projects)
 
   showProject = (projectId) =>  {
     let project = this.projects.find( project => project.id ==  projectId)
