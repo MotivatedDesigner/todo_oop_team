@@ -1,7 +1,10 @@
+import Project from "./Project"
+
 export default class Controller {
   constructor(userInterface, storageManager) {
     this.userInterface = userInterface
     this.storageManager = storageManager
+    
     this.projects = storageManager.getProjects()
     this.currentProject = null
   }
@@ -12,6 +15,7 @@ export default class Controller {
     let project = this.projects.find( project => project.id ==  projectId)
     this.userInterface.showProject(project)
     this.currentProject = project
+    Object.setPrototypeOf(this.currentProject, Project.prototype)
   }
 
   updateProject = (project) =>  {
@@ -51,7 +55,6 @@ export default class Controller {
     this.currentProject.todos = []
     this.userInterface.clearAll('todo')
   }
-
 
   toggleTodoCompleted = (todoId) => {
     let todo = this.currentProject.todos.find( todo => todo.id == todoId )
