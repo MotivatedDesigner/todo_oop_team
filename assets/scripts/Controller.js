@@ -69,7 +69,6 @@ export default class Controller {
     this.userInterface.updateProject(projectId, this.currentProject)
   }
 
-  saveProjects = () => {
-    this.storageManager.setProjects(this.projects)
-  }
+  saveProjects = () => this.storageManager.setProjects(this.projects)
+  
 }

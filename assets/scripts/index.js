@@ -25,4 +25,4 @@ document.getElementById('project-list').addEventListener('click', (event) => {
   if(event.target.tagName == 'LI') controller.showProject(event.target.id)
 })
 
-window.onbeforeunload = () => controller.saveProjects
+window.onbeforeunload = controller.saveProjects
