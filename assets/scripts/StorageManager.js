@@ -7,10 +7,8 @@ export default class StorageManager {
     }
     getProjects = () => {
         let projects = localStorage.getItem(this.key)
-        if(projects == null) {
-            this.setProjects([])
+        if (projects == null) {
             return []
-        }
-        else return JSON.parse(projects)
+        } else return JSON.parse(projects)
     }
 }
