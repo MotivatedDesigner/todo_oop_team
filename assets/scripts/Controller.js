@@ -21,8 +21,8 @@ export default class Controller {
 
   removeProject = () =>  {
     this.projects = this.projects.filter( project => project.id != this.currentProject.id )
+    this.userInterface.removeItem('project', this.currentProject.id)
     this.currentProject = null
-    this.userInterface.clearProject()
   }
 
   addItem = (type, item) =>  {

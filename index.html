@@ -46,10 +46,21 @@
   </section>
   <!-- Modal -->
   <div id="add-project-modal" class="modal">
-    <input placeholder="Project Title" type="text" name="title" id="input-project-title">
-    <textarea placeholder="Project Description" name="desc" id="input-project-description"></textarea>
-    <input type="date" name="desc" id="input-project-dueDate">
-    <input type="button" value="Save" id="project-save">
+    <div class="modal-content">
+      <div class="modal-field">
+        <label for="input-project-title">Project Title</label></br>
+        <input placeholder="Project Title" type="text" name="title" id="input-project-title">
+      </div>
+      <div class="modal-field">
+        <label for="input-project-description">Project Description</label></br>
+        <textarea rows="4" placeholder="Project Description" name="desc" id="input-project-description"></textarea>
+      </div>
+      <div class="modal-field">
+        <label for="input-project-dueDate">Project DueDate</label></br>
+        <input type="date" name="desc" id="input-project-dueDate">      
+      </div>
+      <input type="button" value="Save" id="project-save">
+    </div>
   </div>
   <!-- 
     <div class="modal">
