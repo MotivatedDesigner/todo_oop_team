@@ -53,4 +53,9 @@ export default class UserInterface {
       if(type === 'project') this.showProjectDiv(false)
     } 
 
+    updateProject = (project) => {
+      this.projectTitle.innerHTML = project.title
+      this.projectDescription.innerText = project.description
+    }
+
 }

@@ -15,7 +15,9 @@ export default class Controller {
   }
 
   updateProject = (project) =>  {
-    this.currentProject.update(project)
+    this.currentProject.title = project.title
+    this.currentProject.description = project.description
+    this.currentProject.dueDate = project.dueDate
     this.userInterface.updateProject(project)
   }
 

@@ -6,6 +6,7 @@ import Todo from "./Todo.js"
 
 const controller = new Controller(new UserInterface, new StorageManager);
 const addProjectModal = document.getElementById('add-project-modal')
+const editProjectModal = document.getElementById('edit-project-modal')
 
 controller.showProjects()
 
@@ -30,11 +31,23 @@ document.getElementById('project-list').addEventListener('click', (event) => {
 // Remove & edit
 document.getElementById('project-actions').addEventListener('click', (event) => {
   if(event.target.closest('svg').classList.contains('remove')) 
-    controller.removeProject(event.target.closest('li').id)
-  // else if(event.target.closest('svg').classList.contains('edit'))
-  //   controller.removeTodo(event.target.closest('li').id)
+    controller.removeProject()
+  else if(event.target.closest('svg').classList.contains('edit'))
+  {
+    editProjectModal.classList.add('show-modal')
+    editProjectModal.querySelector('#edit-project-title').value = controller.currentProject.title
+    editProjectModal.querySelector('#edit-project-description').value = controller.currentProject.description
+    editProjectModal.querySelector('#edit-project-dueDate').value = controller.currentProject.dueDate
+  }
 })
-
+// Update
+document.getElementById('project-edit').addEventListener('click', () => {
+  editProjectModal.classList.remove('show-modal')
+  const title = editProjectModal.querySelector('#edit-project-title').value
+  const description = editProjectModal.querySelector('#edit-project-description').value
+  const dueDate = editProjectModal.querySelector('#edit-project-dueDate').value
+  controller.updateProject(new Project(title, description, dueDate))
+})
 /* Todo CRUD */
 // Clear all
 document.getElementById('clear-todos').addEventListener('click', controller.clearTodos)

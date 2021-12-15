@@ -62,6 +62,25 @@
       <input type="button" value="Save" id="project-save">
     </div>
   </div>
+
+  <div id="edit-project-modal" class="modal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 24px;">Edit Project</h2>
+      <div class="modal-field">
+        <label for="edit-project-title">Project Title</label></br>
+        <input placeholder="Project Title" type="text" name="title" id="edit-project-title">
+      </div>
+      <div class="modal-field">
+        <label for="edit-project-description">Project Description</label></br>
+        <textarea rows="4" placeholder="Project Description" name="desc" id="edit-project-description"></textarea>
+      </div>
+      <div class="modal-field">
+        <label for="edit-project-dueDate">Project DueDate</label></br>
+        <input type="date" name="desc" id="edit-project-dueDate">      
+      </div>
+      <input type="button" value="Save" class="save" id="project-edit">
+    </div>
+  </div>
   <!-- 
     <div class="modal">
         <input type="text" name="title" id="project-title">
