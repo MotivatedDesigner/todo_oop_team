@@ -48,7 +48,6 @@ export default class Controller {
   }
 
   updateTodo = (todo) =>  {
-    console.log(`todo`, todo)
     this.currentTodo.title = todo.title
     this.userInterface.updateItem('todo',this.currentTodo.id, todo)
   }
