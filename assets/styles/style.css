@@ -1,104 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&family=Poppins:wght@100;300&display=swap");
 html {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .home {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-}
-
-ul {
-    list-style: none;
-}
-
-.projects {
-    width: 30%;
-    position: relative;
-}
-
-.app-name {
-    display: inline-block;
-    margin: 30px;
-}
-
-.projects-list {
-    margin-left: 32px;
-    margin-top: 16px;
-}
-
-.projects-item {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-    color: blue;
-}
-
-.project {
-    width: 70%;
-    margin: 30px;
-}
-
-.project-description {
-    margin: 8px;
-    width: 60%;
-}
-
-.project-todo {
-    margin: 16px 40px;
-    width: 80%;
-}
-
-.todo {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 24px;
-    background-color: #dadada;
-    padding: 16px;
-}
-
-.todo-actions svg {
-    height: 20px;
-}
-
-.todo-actions {
-    display: flex;
-    gap: 8px;
-}
-
-#add-project {
-    margin-left: 30px;
-    position: absolute;
-    bottom: 40px;
-    padding: .6rem 1.2rem;
-}
-
-#add_projects {
-    margin-left: 30px;
-    position: absolute;
-    bottom: 40px;
-    padding: .6rem 1.2rem;
-}
-
-.modal {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    bottom: 86px;
-    left: 32px;
-    height: 160px;
-    width: 200px;
-    background-color: rgba(0, 0, 0, .4);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-color: rgb(51, 51, 51);
+  color: white;
+  font-size: 1.2rem;
+  position: relative;
 }
 
 .show {
-    display: flex;
+  display: block !important;
+}
+
+ul {
+  list-style: none;
+}
+
+.projects {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0px 36px;
+  background-color: rgb(185, 56, 120);
+}
+
+#project-list {
+  flex: 1;
+  width: 100%;
+}
+#project-list li {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  background-color: transparent;
+  border: 2px solid rgba(9, 9, 121, 1);
+  width: 80%;
+  padding: 0.6rem 1rem;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#project-list li:hover {
+  background-color: rgba(9, 9, 121, 0.685);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 0.8rem 1.6rem;
+  background: rgba(9, 9, 121, 0.39);
+  background: linear-gradient(
+    360deg,
+    rgba(9, 9, 121, 0.726) 0%,
+    rgba(16, 16, 189, 0.651) 100%
+  );
+  border-radius: 8px;
+  outline: none;
+  color: white;
+  font-size: 1.4rem;
+}
+.app-name {
+  display: inline-block;
+  margin: 30px;
+}
+
+.add-todo{
+  display: flex;
+}
+
+#todo-input-title {
+  font-size: 1.8rem;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  width: 90%;
+  border-end-start-radius: 8px;
+  border-start-start-radius: 8px;
+}
+#todo-input-add, #clear-todos {
+  font-size: 3.2rem;
+  outline: none;
+  border: none;
+  width: 10%;
+  background: rgba(9, 9, 121, 0.39);
+  background: linear-gradient(
+    360deg,
+    rgba(9, 9, 121, 0.849) 0%,
+    rgba(16, 16, 189, 0.863) 100%
+  );
+  color: white;
+  cursor: pointer;
+}
+#clear-todos {
+  background: rgba(121, 44, 9, 0.39);
+  background: linear-gradient(
+    360deg,
+    rgba(121, 26, 9, 0.849) 0%,
+    rgba(189, 16, 16, 0.863) 100%
+  );
+}
+
+#todo-list{
+  margin-top: 16px;
+}
+#todo-list li{
+  background-color: rgb(212, 212, 212);
+  color: rgb(71, 71, 71);
+  font-size: 1.8rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.todo-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checked{
+  background-color: rgb(125 207 139) !important;
+  text-decoration: line-through;
+}
+#todo-list li svg{
+  height: 26px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+.edit, .remove, .check{
+  cursor: pointer;
+}
+.edit:hover{
+  color: rgb(14, 87, 245);
+}
+.remove:hover{
+  color: rgb(223, 48, 48);
+}
+.check:hover{
+  color: rgb(55, 160, 23);
+}
+
+.project {
+  width: 40%;
+  margin: 24px auto ;
+  display: none;
+}
+
+#project-title{
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+#project-description {
+  margin-bottom: 42px;
+  font-size: 1.8rem;
+  color: rgb(223, 223, 223);
+}
+
+.project-header{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+#project-actions{
+  display: flex;
+  align-items: center;
+}
+#project-actions svg{
+  height: 28px;
+  margin: 12px 6px 0;
+}
+
+
+
+
+
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  background-color: #dadada;
+  padding: 16px;
+}
+
+.todo-actions svg {
+  height: 20px;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+#add_projects {
+  margin-left: 30px;
+  position: absolute;
+  bottom: 40px;
+  padding: 0.6rem 1.2rem;
+}
+
+.modal{
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+.modal-content{
+  align-self: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: white;
+  padding: 3rem 6rem;
+  border-radius: 8px;
+  color: black;
+}
+.save{
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background: rgba(9, 9, 121, 0.39);
+  background: linear-gradient(
+    360deg,
+    rgba(9, 9, 121, 0.849) 0%,
+    rgba(16, 16, 189, 0.863) 100%
+  );
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+}
+.modal-field input, .modal-field textarea{
+  padding: .6rem;
+  width: 400px;
+  margin-top: 6px;
+  font-size: 1.2rem;
+}
+.modal-field label{
+  color: black;
+  font-size: 1.2rem;
+}
+.show-modal{
+  display: grid !important;
+}
+
+.description{
+  display: none;
+  margin-top: 12px;
+  font-size: 1.4rem;
+  padding: .4rem;
+  color: rgb(95, 95, 95);
 }
