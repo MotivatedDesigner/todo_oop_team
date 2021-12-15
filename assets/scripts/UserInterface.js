@@ -53,7 +53,8 @@ export default class UserInterface {
       if(type === 'todo')
         document.getElementById(itemId).innerHTML = this[`generateUpdate${this.capitalizeFirstLetter(type)}Html`](item) 
       if(item.completed == true) 
-        document.getElementById(itemId).classList.toggle('checked')
+        document.getElementById(itemId).classList.add('checked')
+      else document.getElementById(itemId).classList.remove('checked')
     }
 
     removeItem = (type, itemId) => {
