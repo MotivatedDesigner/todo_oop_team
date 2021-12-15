@@ -72,12 +72,12 @@ document.getElementById('todo-list').addEventListener('click', (event) => {
   }
 })
 // Update
-document.getElementById('project-edit').addEventListener('click', () => {
-  editProjectModal.classList.remove('show-modal')
-  const title = editProjectModal.querySelector('#edit-project-title').value
-  const description = editProjectModal.querySelector('#edit-project-description').value
-  const dueDate = editProjectModal.querySelector('#edit-project-dueDate').value
-  controller.updateProject(new Project(title, description, dueDate))
+document.getElementById('todo-edit').addEventListener('click', () => {
+  editTodoModal.classList.remove('show-modal')
+  const title = editTodoModal.querySelector('#edit-todo-title').value
+  const description = editTodoModal.querySelector('#edit-todo-description').value
+  const dueDate = editTodoModal.querySelector('#edit-todo-dueDate').value
+  controller.updateTodo(new Todo(title, description, dueDate))
 })
 
 window.onbeforeunload = controller.saveProjects

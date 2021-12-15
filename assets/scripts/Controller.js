@@ -5,6 +5,7 @@ export default class Controller {
     
     this.projects = storageManager.getProjects()
     this.currentProject = null
+    this.currentTodo = null
   }
 
   showProjects = () => this.userInterface.displayAll('project', this.projects)
@@ -46,10 +47,10 @@ export default class Controller {
     this.userInterface.clearAll('todos')
   }
 
-  updateTodo = (todoId, todo) =>  {
-    let oldTodo = this.currentProject.todos.find( todo => todo.id == todoId )
-    oldTodo.update(todo)
-    this.userInterface.updateTodo(todo)
+  updateTodo = (todo) =>  {
+    console.log(`todo`, todo)
+    this.currentTodo.title = todo.title
+    this.userInterface.updateItem('todo',this.currentTodo.id, todo)
   }
 
   removeTodo = (todoId) =>  {
@@ -79,6 +80,7 @@ export default class Controller {
 
   saveProjects = () => this.storageManager.setProjects(this.projects)
 
-  getTodo = (todoId) => this.currentProject.todos.find( todo => todo.id ==  todoId)
+  getTodo = (todoId) => 
+    this.currentTodo = this.currentProject.todos.find( todo => todo.id ==  todoId)
 
 }

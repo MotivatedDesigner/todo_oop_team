@@ -50,10 +50,9 @@ export default class UserInterface {
 
     updateItem = (type, itemId, item) => 
     {
-      if(type === 'todo'){
+      if(type === 'todo')
         document.getElementById(itemId).innerHTML = this[`generateUpdate${this.capitalizeFirstLetter(type)}Html`](item) 
-        document.getElementById(itemId).classList.toggle('checked')
-      } else if(item.completed == true) 
+      if(item.completed == true) 
         document.getElementById(itemId).classList.toggle('checked')
     }
 
