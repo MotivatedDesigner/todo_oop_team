@@ -5,6 +5,7 @@ import Project from "./Project.js"
 import Todo from "./Todo.js"
 
 const controller = new Controller(new UserInterface, new StorageManager);
+
 const addProjectModal = document.getElementById('add-project-modal')
 const editProjectModal = document.getElementById('edit-project-modal')
 const editTodoModal = document.getElementById('edit-todo-modal')
@@ -19,6 +20,7 @@ document.getElementById('project-save').addEventListener('click', () => {
   const title = document.getElementById('input-project-title').value
   const description = document.getElementById('input-project-description').value
   const dueDate = document.getElementById('input-project-dueDate').value
+  //Validation
   controller.addItem('project', new Project(title, description, dueDate))
   addProjectModal.classList.remove('show-modal')
 })
@@ -28,7 +30,7 @@ document.getElementById('clear-projects').addEventListener('click', controller.c
 // show
 document.getElementById('project-list').addEventListener('click', (event) => {
   if(event.target.tagName == 'LI') controller.showProject(event.target.id)
-})
+})  
 // Remove & edit
 document.getElementById('project-actions').addEventListener('click', (event) => {
   if(event.target.closest('svg').classList.contains('remove')) 
@@ -59,7 +61,8 @@ document.getElementById('todo-input-add').addEventListener('click', () => {
 })
 // Remove & edit & check
 document.getElementById('todo-list').addEventListener('click', (event) => {
-  if(event.target.closest('svg').classList.contains('remove')) 
+  if(event.target.tagName == 'LI') event.target.classList.toggle('show')
+  else if(event.target.closest('svg').classList.contains('remove')) 
     controller.removeTodo(event.target.closest('li').id)
   else if(event.target.closest('svg').classList.contains('check'))
     controller.toggleTodoCompleted(event.target.closest('li').id)
