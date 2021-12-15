@@ -18,17 +18,25 @@ document.getElementById('project-save').addEventListener('click', () => {
   controller.addItem('project', new Project(title, description, dueDate))
   addProjectModal.classList.remove('show')
 })
-
+/* Project CRUD */
 document.getElementById('clear-projects').addEventListener('click', controller.clearProjects)
-document.getElementById('clear-todos').addEventListener('click', controller.clearTodos)
 
 document.getElementById('project-list').addEventListener('click', (event) => {
   if(event.target.tagName == 'LI') controller.showProject(event.target.id)
 })
 
+/* Todo CRUD */
+// Clear all
+document.getElementById('clear-todos').addEventListener('click', controller.clearTodos)
+// Add
 document.getElementById('todo-input-add').addEventListener('click', () => {
   const title = document.getElementById('todo-input-title').value
   controller.addItem('todo', new Todo(title))
+})
+// Remove & edit
+document.getElementById('todo-list').addEventListener('click', (event) => {
+  if(event.target.closest('svg').classList.contains('remove')) 
+    controller.removeTodo(event.target.closest('li').id)
 })
 
 window.onbeforeunload = controller.saveProjects

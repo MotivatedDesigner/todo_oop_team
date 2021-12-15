@@ -1,5 +1,3 @@
-import Project from "./Project.js"
-
 export default class Controller {
   constructor(userInterface, storageManager) {
     this.userInterface = userInterface
@@ -14,7 +12,6 @@ export default class Controller {
   showProject = (projectId) =>  {
     let project = this.projects.find( project => project.id ==  projectId)
     this.userInterface.showProject(this.currentProject = project)
-    // Object.setPrototypeOf(this.currentProject, Project.prototype)
   }
 
   updateProject = (project) =>  {
@@ -56,7 +53,7 @@ export default class Controller {
 
   removeTodo = (todoId) =>  {
     this.currentProject.todos = this.currentProject.todos.filter( todo => todo.id != todoId )
-    this.userInterface.removeTodo(todoId)
+    this.userInterface.removeItem('todo', todoId)
   }
 
   clearTodos = () =>  {
