@@ -48,6 +48,7 @@ document.getElementById('project-edit').addEventListener('click', () => {
   const dueDate = editProjectModal.querySelector('#edit-project-dueDate').value
   controller.updateProject(new Project(title, description, dueDate))
 })
+
 /* Todo CRUD */
 // Clear all
 document.getElementById('clear-todos').addEventListener('click', controller.clearTodos)
@@ -60,8 +61,8 @@ document.getElementById('todo-input-add').addEventListener('click', () => {
 document.getElementById('todo-list').addEventListener('click', (event) => {
   if(event.target.closest('svg').classList.contains('remove')) 
     controller.removeTodo(event.target.closest('li').id)
-  // else if(event.target.closest('svg').classList.contains('edit'))
-  //   controller.removeTodo(event.target.closest('li').id)
+  else if(event.target.closest('svg').classList.contains('check'))
+    controller.toggleTodoCompleted(event.target.closest('li').id)
 })
 
 window.onbeforeunload = controller.saveProjects

@@ -66,7 +66,7 @@ export default class Controller {
   toggleTodoCompleted = (todoId) => {
     let todo = this.currentProject.todos.find( todo => todo.id == todoId )
     todo.completed = !todo.completed
-    this.userInterface.updateTodo(todoId, oldTodo)
+    this.userInterface.updateItem('todo',todoId, todo)
 
     let notCompletedTodos = this.currentProject.todos.find( todo => todo.completed == false )
     if(notCompletedTodos == undefined) this.setProjectCompleted(true)
@@ -74,7 +74,7 @@ export default class Controller {
   }
   setProjectCompleted = (completed) => {
     this.currentProject.completed = completed
-    this.userInterface.updateProject(projectId, this.currentProject)
+    this.userInterface.updateItem('project', this.currentProject.id, this.currentProject)
   }
 
   saveProjects = () => this.storageManager.setProjects(this.projects)
