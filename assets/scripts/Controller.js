@@ -32,7 +32,6 @@ export default class Controller {
       this.projects.push(item)
     else
       this.currentProject.todos.push(item)
-    console.log(`item`, item)
     this.userInterface.addItem(type, item)
   }
 
@@ -69,6 +68,7 @@ export default class Controller {
     this.userInterface.updateItem('todo',todoId, todo)
 
     let notCompletedTodos = this.currentProject.todos.find( todo => todo.completed == false )
+    console.log(`notCompletedTodos`, notCompletedTodos)
     if(notCompletedTodos == undefined) this.setProjectCompleted(true)
     else this.setProjectCompleted(false)
   }
@@ -78,5 +78,7 @@ export default class Controller {
   }
 
   saveProjects = () => this.storageManager.setProjects(this.projects)
+
+  getTodo = (todoId) => this.currentProject.todos.find( todo => todo.id ==  todoId)
 
 }

@@ -133,6 +133,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
+  margin-bottom: 8px;
 }
 .checked{
   background-color: rgb(125 207 139) !important;

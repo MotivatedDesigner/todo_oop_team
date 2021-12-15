@@ -81,6 +81,25 @@
       <input type="button" value="Save" class="save" id="project-edit">
     </div>
   </div>
+
+  <div id="edit-todo-modal" class="modal">
+    <div class="modal-content">
+      <h2 style="margin-bottom: 24px;">Edit Todo</h2>
+      <div class="modal-field">
+        <label for="edit-todo-title">Todo Title</label></br>
+        <input placeholder="todo Title" type="text" name="title" id="edit-todo-title">
+      </div>
+      <div class="modal-field">
+        <label for="edit-todo-description">Todo Description</label></br>
+        <textarea rows="4" placeholder="todo Description" name="desc" id="edit-todo-description"></textarea>
+      </div>
+      <div class="modal-field">
+        <label for="edit-todo-dueDate">Todo DueDate</label></br>
+        <input type="date" name="desc" id="edit-todo-dueDate">      
+      </div>
+      <input type="button" value="Save" class="save" id="todo-edit">
+    </div>
+  </div>
   <!-- 
     <div class="modal">
         <input type="text" name="title" id="project-title">
